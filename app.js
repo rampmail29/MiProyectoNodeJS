@@ -3,11 +3,11 @@ import trabajadoresRoutes from "./src/routes/trabajadores.routes.js";
 import cors from 'cors';
 import pkg from 'express-validator';
 import { formatoRta } from "./src/scripts/formatoRta.js";
-const { body, query, matchedData, validationResult, ExpressValidator, CustomValidationChain, ValidationChain } = pkg;
+//const { body, query, matchedData, validationResult, ExpressValidator, CustomValidationChain, ValidationChain } = pkg;
 
 const app = express();
 
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: 'https://ttproject.netlify.app/' }));
 
 app.use(express.json());
 
