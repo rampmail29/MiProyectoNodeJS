@@ -85,7 +85,7 @@ export const crearTrabajador = async (req, res) => {
         formatoRta(
           "",
           "",
-          "Ocurrió un error en el servidor. Por favor, inténtelo de nuevo."
+          ""+error
         )
       );
   } finally {
