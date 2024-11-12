@@ -9,7 +9,7 @@ console.log(process.env.DB_PASSWORD)
 console.log(process.env.DB_DATABASE)*/
 
 //almacena el port, si no existe coloca el 4000
-//export const PORT = process.env.PORT || 4000
+export const PORT = process.env.PORT || 4000
 
 //PARA RAILWAY BD
 //export const DB_USER = process.env.DB_USER || 'root'

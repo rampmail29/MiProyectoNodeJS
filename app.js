@@ -20,6 +20,4 @@ app.use((req, res, next) => {
 });
 
 //export default app;
-export default (req, res) => {
-  app(res, res);
-};
+export default app;

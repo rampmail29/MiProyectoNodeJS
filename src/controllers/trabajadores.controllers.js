@@ -51,7 +51,7 @@ export const crearTrabajador = async (req, res) => {
       fechaExpedicionDocumento,
       email,
       fechaRegistro: new Date(),
-      dependencia
+      dependencia,
     };
 
     const resultado = await collection.insertOne(nuevoTrabajador);
@@ -680,34 +680,41 @@ export const editarTrabajador = async (req, res) => {
     // Conectar a la base de datos
     const database = await db.connect();
     const collection = database.collection("trabajadores");
-    const result = await collection.updateOne(
-      { numeroDocumento }, //---> para validar el registro que se va a actualizar
-      {
-        $set: {
-          nombre,
-          tipoDocumento,
-          email,
-          fechaRegistro,
-          fechaExpedicionDocumento,
-        },
-      }
-    );
-    console.log("🚀 ~ editarTrabajador ~ result:", result);
+    //consultar si el dato existe
+    // Buscar el trabajador por número de documento
+    const trabajador = await collection.findOne({ numeroDocumento });
+    if (numeroDocumento) {
+      const result = await collection.updateOne(
+        { numeroDocumento }, //---> para validar el registro que se va a actualizar
+        {
+          $set: {
+            nombre,
+            tipoDocumento,
+            email,
+            fechaRegistro,
+            fechaExpedicionDocumento,
+          },
+        }
+      );
+      console.log("🚀 ~ editarTrabajador ~ result:", result);
 
-    if (result.matchedCount === 1) {
-      console.log("Trabajador actualizado:", numeroDocumento);
-      res
-        .status(200)
-        .json(
-          formatoRta(
-            "",
-            "",
-            `Trabajador con documento ${numeroDocumento} actualizado con éxito`
-          )
-        );
+      if (result.matchedCount === 1) {
+        console.log("Trabajador actualizado:", numeroDocumento);
+        res
+          .status(200)
+          .json(
+            formatoRta(
+              "",
+              "",
+              `Trabajador con documento ${numeroDocumento} actualizado con éxito`
+            )
+          );
+      } else {
+        console.log("El registro no se actualizó correctamente");
+        res.status(404).json(formatoRta("", "", "Trabajador no encontrado"));
+      }
     } else {
-      console.log("Trabajador no encontrado para actualizar");
-      res.status(404).json(formatoRta("", "", "Trabajador no encontrado"));
+      res.status(401).json(formatoRta("", "", "Trabajador no encontrado"));
     }
   } catch (error) {
     console.error("Error en editTrabajador:", error);
