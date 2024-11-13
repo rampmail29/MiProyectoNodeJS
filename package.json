@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "start": "NODE_ENV=production node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -20,8 +20,6 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.6.0",
     "mongodb": "^6.10.0",
-    "mysql2": "^3.3.3",
-    "mysqldump": "^1.4.2",
     "node-cron": "^3.0.2",
     "nodemailer": "^6.9.3"
   },

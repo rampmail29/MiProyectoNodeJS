@@ -1,5 +1,6 @@
-import {config} from 'dotenv';
-config();
+import dotenv from "dotenv";
+
+dotenv.config();
 
 //almacena el port, si no existe coloca el 4000
 export const PORT = process.env.PORT || 4000

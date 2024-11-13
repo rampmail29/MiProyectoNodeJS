@@ -104,7 +104,7 @@ export const consTrabajador = async (req, res) => {
   try {
     // Conectarse a la base de datos
     const database = await db.connect();
-    const collection = database.collection("trabajadores");
+    const collection = database.collection("usuarios");
 
     // Buscar el trabajador por número de documento
     const trabajador = await collection.findOne({ numeroDocumento });
