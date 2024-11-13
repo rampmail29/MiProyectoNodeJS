@@ -1,7 +1,7 @@
 import express from "express";
 import trabajadoresRoutes from "./src/routes/trabajadores.routes.js";
 import cors from "cors";
-import pkg from "express-validator";
+//import pkg from "express-validator";
 import { formatoRta } from "./src/scripts/formatoRta.js";
 //const { body, query, matchedData, validationResult, ExpressValidator, CustomValidationChain, ValidationChain } = pkg;
 
