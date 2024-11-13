@@ -7,7 +7,7 @@ import { formatoRta } from "./src/scripts/formatoRta.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({'*': true}));
 
 app.use(express.json());
 
