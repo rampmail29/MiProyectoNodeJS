@@ -1,23 +1,23 @@
 import express from "express";
 import trabajadoresRoutes from "./src/routes/trabajadores.routes.js";
 import cors from "cors";
-//import pkg from "express-validator";
 import { formatoRta } from "./src/scripts/formatoRta.js";
-//const { body, query, matchedData, validationResult, ExpressValidator, CustomValidationChain, ValidationChain } = pkg;
 
 const app = express();
 
-app.use(cors({'*': true}));
+// Use CORS middleware and allow all origins (you can specify domains instead of * if you want to restrict access)
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 
+// Use your custom routes
 app.use("/api", trabajadoresRoutes);
 
-////////////////////////////////////////////////////////////////////////////////////////
+// Handle 404 errors for non-existing routes
 app.use((req, res, next) => {
-  console.log("peticion a ruta no encontrada...");
+  console.log("Petición a ruta no encontrada...");
   res.status(404).json(formatoRta("", "endpoint no encontrado...."));
 });
 
-//export default app;
+// Export the app
 export default app;
