@@ -2,6 +2,8 @@ import express from "express";
 import trabajadoresRoutes from "./src/routes/trabajadores.routes.js";
 import cors from "cors";
 import { formatoRta } from "./src/scripts/formatoRta.js";
+import pkg from 'express-validator';
+const { body, query, matchedData, validationResult, ExpressValidator, CustomValidationChain, ValidationChain } = pkg;
 
 const app = express();
 
@@ -9,6 +11,8 @@ const app = express();
 app.use(cors({ origin: "*" }));
 
 app.use(express.json());
+
+app.listen(3000)
 
 // Use your custom routes
 app.use("/api", trabajadoresRoutes);

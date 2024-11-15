@@ -1,9 +1,0 @@
-
- [{
-    "nombre": "John Doe",
-    "numeroDocumento": "1234567890",
-    "tipoDocumento": "1234567890",
-    "fechaExpedicionDocumento": "2021-01-01",
-    "email": "john.doe@example.com"
-  }
- ]
