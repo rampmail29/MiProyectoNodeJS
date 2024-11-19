@@ -21,7 +21,7 @@ import {
 const router = Router();
 
 router.get("/trabajador/numeroDocumento/:numeroDocumento", consTrabajador);
-router.post("/trabajador", crearTrabajador);
+router.post("/trabajador", validarEditarTrabajador, resultadoValidacion, crearTrabajador);
 router.put("/trabajador/actualizarTrabajador", actualizarFirmaTrabajador);
 router.post(
   "/trabajador/habilitarEvaluReinduccion",
